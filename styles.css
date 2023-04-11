@@ -21,22 +21,19 @@ button {
     border: solid black;
     display: grid;
     padding: 1rem;
-    /* justify-content: center; */
-    /* align-items: center; */
     grid-template-columns: repeat(3, 200px);
     grid-auto-rows: minmax(120px,auto);
 }
-.input{
-    
+.display{
+    display: flex;
     grid-column: span 3;
     border: solid black;
-
+    align-items: center;
+    justify-content: right;
+    font-size: 3rem;
+    padding: 1rem;
 }
 .clear{
     grid-column: 1/span 2;
 }
-.one {
-    
-    
 
-}
