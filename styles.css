@@ -16,6 +16,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .calc-container {
     border: solid black;
@@ -23,6 +24,7 @@ button {
     padding: 1rem;
     grid-template-columns: repeat(3, 200px);
     grid-auto-rows: minmax(120px,auto);
+    background-color: lightgray;
 }
 .display{
     display: flex;
@@ -32,6 +34,8 @@ button {
     justify-content: right;
     font-size: 3rem;
     padding: 1rem;
+    background-color: white;
+
 }
 .clear{
     grid-column: 1/span 2;
