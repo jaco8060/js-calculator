@@ -1,9 +1,42 @@
-body {
-    font-family: 'Merriweather', serif;
-    gap: 5rem;
-/* font-family: 'Montserrat', sans-serif; */
-/* font-family: 'Sacramento', cursive; */
+html {
+    scroll-behavior: smooth;
+  }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 button {
-    ;
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calc-container {
+    border: solid black;
+    display: grid;
+    padding: 1rem;
+    /* justify-content: center; */
+    /* align-items: center; */
+    grid-template-columns: repeat(3, 200px);
+    grid-auto-rows: minmax(120px,auto);
+}
+.input{
+    
+    grid-column: span 3;
+    border: solid black;
+
+}
+.clear{
+    grid-column: 1/span 2;
+}
+.one {
+    
+    
+
 }
