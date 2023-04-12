@@ -14,9 +14,6 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-let num1;
-let num2;
-
 function operate(num1, num2, op) {
   let result = "";
   switch (op) {
@@ -42,17 +39,18 @@ function operate(num1, num2, op) {
   return result;
 }
 
+let num1 = "";
+let num2 = "";
+let operator = "";
+let displayContent = "";
 function fillDisplay(e) {
   const display = document.querySelector(".display");
   const value = e.target.textContent;
+  display.textContent += value;
+  displayContent = display.textContent;
   if (isNaN(value)) {
-    display.textContent += " " + value;
-  } else {
-    if (isNaN(display.textContent[display.textContent.length - 1])) {
-      display.textContent += " " + value;
-    } else {
-      display.textContent += value;
-    }
+    operator = value;
+    num1 = displayContent.slice(0, -1);
   }
 }
 const nums = document.querySelectorAll(".number");
@@ -71,6 +69,10 @@ del.addEventListener("click", deleteLast);
 function clearDisplay(e) {
   const display = document.querySelector(".display");
   display.textContent = "";
+  num1 = "";
+  num2 = "";
+  operator = "";
+  displayContent = "";
 }
 
 const clear = document.querySelector(".clear");
@@ -81,3 +83,18 @@ const ops = document.querySelectorAll(".op");
 ops.forEach((op) => {
   op.addEventListener("click", fillDisplay);
 });
+
+function calculate(e) {
+  num2 = displayContent.slice(num1.length + 1);
+
+  const display = document.querySelector(".display");
+  const result = operate(parseFloat(num1), parseFloat(num2), operator);
+  display.textContent = result;
+  num1 = result;
+  num2 = "";
+  operator = "";
+  displayContent = result.toString();
+}
+
+const eq = document.querySelector(".eqbtn");
+eq.addEventListener("click", calculate);

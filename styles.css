@@ -26,17 +26,20 @@ button {
     grid-auto-rows: minmax(120px,auto);
     background-color: lightgray;
 }
-.display{
-    display: flex;
+.display {
+    
     grid-column: span 3;
     border: solid black;
-    align-items: center;
-    justify-content: right;
+    text-align: right;
+    justify-items: right;  
     font-size: 3rem;
     padding: 1rem;
     background-color: white;
-
-}
+    display: inline-block;
+    word-wrap: break-word;
+  }
+  
+  
 .clear{
     grid-column: 1/span 2;
 }
