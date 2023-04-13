@@ -44,3 +44,9 @@ button {
     grid-column: 1/span 2;
 }
 
+.op {
+  background-color: grey;
+}
+.yellow {
+  background-color: goldenrod;
+}
