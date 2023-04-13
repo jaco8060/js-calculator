@@ -102,8 +102,12 @@ function calculate(e) {
   // loop through the operator array and perform operations
   for (let i = 0; i < opArr.length; i++) {
     result = operate(result, parseFloat(numArr[i + 1]), opArr[i]);
+    // check if the result is a number or a string (error message)
+    if (isNaN(result)) {
+      display.textContent = "Error";
+      return;
+    }
   }
-
   display.textContent = result;
 }
 
