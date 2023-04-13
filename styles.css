@@ -22,13 +22,20 @@ button {
     border: solid black;
     display: grid;
     padding: 1rem;
-    grid-template-columns: repeat(3, 200px);
+    grid-template-columns: repeat(4, 200px);
     grid-auto-rows: minmax(120px,auto);
     background-color: lightgray;
+    grid-template-areas: 
+    "display display display display"
+    "seven eight nine multBtn"
+    "four five six subBtn"
+    "one two three addBtn"
+    "zero dec eqbtn divBtn"
+    ". . del clear";
 }
 .display {
     
-    grid-column: span 3;
+    grid-column: span 4;
     border: solid black;
     text-align: right;
     justify-items: right;  
@@ -41,12 +48,81 @@ button {
   
   
 .clear{
-    grid-column: 1/span 2;
+    grid-area: clear;
 }
 
 .op {
   background-color: grey;
+  
 }
 .yellow {
   background-color: goldenrod;
+}
+
+.del {
+  grid-area: del;
+}
+
+.zero {
+  grid-area: zero;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.dec {
+  grid-area: dec;
+}
+
+.eqbtn {
+  grid-area: eqbtn;
+}
+
+.addBtn {
+  grid-area: addBtn;
+}
+
+.subBtn {
+  grid-area: subBtn;
+}
+
+.multBtn {
+  grid-area: multBtn;
+}
+
+.divBtn {
+  grid-area: divBtn;
 }
