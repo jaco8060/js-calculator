@@ -30,7 +30,11 @@ function operate(num1, num2, op) {
       console.log(result);
       break;
     case "/":
-      result = divide(num1, num2);
+      if (num1 == 0) {
+        result = "ERROR (div by 0)";
+      } else {
+        result = divide(num1, num2);
+      }
       console.log(result);
       break;
     default:
