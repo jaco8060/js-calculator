@@ -44,14 +44,17 @@ let num2 = "";
 let operator = "";
 let displayContent = "";
 function fillDisplay(e) {
-  const display = document.querySelector(".display");
-  const value = e.target.textContent;
-  display.textContent += value;
-  displayContent = display.textContent;
-  if (isNaN(value)) {
-    operator = value;
-    num1 = displayContent.slice(0, -1);
+  let display = document.querySelector(".display");
+  let content = display.textContent;
+  let value = e.target.textContent;
+
+  // clear display if the first button pressed is an operator
+  if (content === "" && /[+\-\/*]/.test(value)) {
+    return;
   }
+
+  // append value to display
+  display.textContent += value;
 }
 const nums = document.querySelectorAll(".number");
 nums.forEach((num) => {
@@ -85,15 +88,19 @@ ops.forEach((op) => {
 });
 
 function calculate(e) {
-  num2 = displayContent.slice(num1.length + 1);
+  let display = document.querySelector(".display");
+  let content = display.textContent;
+  let numArr = content.split(/[+\-\/*]/g); // split the content by operators
+  let opArr = content.match(/[+\-\/*]/g); // extract the operators
 
-  const display = document.querySelector(".display");
-  const result = operate(parseFloat(num1), parseFloat(num2), operator);
+  let result = parseFloat(numArr[0]); // set the initial result to the first number
+
+  // loop through the operator array and perform operations
+  for (let i = 0; i < opArr.length; i++) {
+    result = operate(result, parseFloat(numArr[i + 1]), opArr[i]);
+  }
+
   display.textContent = result;
-  num1 = result;
-  num2 = "";
-  operator = "";
-  displayContent = result.toString();
 }
 
 const eq = document.querySelector(".eqbtn");
